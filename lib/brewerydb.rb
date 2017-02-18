@@ -27,7 +27,7 @@ module BreweryDB
             headers: {
               content_type: 'application/json'
             },
-            params: {:api_key => @api_key}
+            params: {:key => @api_key}
           }
         end
 

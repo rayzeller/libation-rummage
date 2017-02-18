@@ -21,14 +21,14 @@ describe BreweryDB::Client do
     end
 
     it 'sets the api_key' do
-      expect(client.connection.params['api_key']).to eq('rays-token')
+      expect(client.connection.params['key']).to eq('rays-token')
     end
 
   end
 
   describe '#search' do
     it 'goes to the search endpoint' do
-      expect(client.search("query").env.url.to_s).to eq("http://api.brewerydb.com/v2/search?api_key=rays-token&q=query")
+      expect(client.search("query").env.url.to_s).to eq("http://api.brewerydb.com/v2/search?key=rays-token&q=query")
     end
   end
 
