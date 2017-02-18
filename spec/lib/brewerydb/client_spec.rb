@@ -28,7 +28,7 @@ describe BreweryDB::Client do
 
   describe '#search' do
     it 'goes to the search endpoint' do
-      expect(client.search("query").env.url.to_s).to eq("http://api.brewerydb.com/v2/search?key=rays-token&q=query")
+      expect(client.search_raw("query").env.url.to_s).to eq("http://api.brewerydb.com/v2/search?key=rays-token&q=query")
     end
   end
 

@@ -15,9 +15,40 @@ module BreweryDB
         end
       end
 
-      def search(query)
+      def search_raw(query)
         connection.get('search', {q: query})
       end
+
+      def search(query)
+        Response.new(search_raw(query))
+      end
+
+      class Response
+
+        class Data
+          include Virtus.model
+          attribute :name, String
+          attribute :description, String
+          attribute :abv, Float
+          attribute :ibu, Float
+
+          class Label
+            include Virtus.model
+
+            attribute :icon
+            attribute :medium
+            attribute :large
+          end
+          attribute :labels, Label
+
+        end
+        include Virtus.model
+
+        attribute :data, Array[Data]
+      end
+      include Virtus.model
+
+
 
       private
 
