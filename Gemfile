@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'haml'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -32,6 +35,7 @@ gem 'spring',        group: :development
 gem 'rspec-rails', groups: [:development, :test]
 
 gem 'faraday'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
