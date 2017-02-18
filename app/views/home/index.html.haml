@@ -1,4 +1,8 @@
 .container
+  .navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %img{src: "http://s3.amazonaws.com/brewerydb/Powered-By-BreweryDB.png", height: "30px"}
   .row
     .form-group
       %form{action: "/"}
@@ -44,3 +48,7 @@
                 = beer.abv
               %td
                 = beer.ibu
+  %footer.footer
+    .container
+      %p.text-muted
+        I do not distribute any information here.  All search results are anonymous.  I collect and display query history and query results.
