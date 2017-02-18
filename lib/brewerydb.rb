@@ -20,7 +20,7 @@ module BreweryDB
       end
 
       def search(query)
-        Response.new(search_raw(query))
+        Response.new(JSON.parse(search_raw(query).body))
       end
 
       class Response
@@ -40,6 +40,14 @@ module BreweryDB
             attribute :large
           end
           attribute :labels, Label
+
+          def icon
+            if labels and labels.icon
+              return labels.icon
+            else
+              return ""
+            end
+          end
 
         end
         include Virtus.model

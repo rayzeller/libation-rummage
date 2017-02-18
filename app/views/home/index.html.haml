@@ -1,7 +1,8 @@
 .container
   .row
     .form-group
-      %input.form-control{type: "text", placeholder: "Search"}
+      %form{action: "/"}
+        %input.form-control{type: "text", placeholder: "Search", name: 'q'}
   .row
     .col-lg-4
       %table.table.table-bordered
@@ -10,10 +11,36 @@
             Query
           %th
             Count
+        - @queries.each do |query|
+          %tr
+            %td
+              = query[0]
+            %td
+              = query[1]
     .col-lg-8
-      %table.table.table-bordered
-        %tr
-          %th
-            Results
-          %th
-            Query
+      - if params[:q] && @result
+        %h3
+          = params[:q]
+        %table.table.table-bordered
+          %tr
+            %th
+            %th
+              Name
+            %th
+              Description
+            %th
+              ABV
+            %th
+              IBU
+          - @result.each do |beer|
+            %tr
+              %td
+                %img{src: beer.icon}
+              %td
+                = beer.name
+              %td
+                = beer.description
+              %td
+                = beer.abv
+              %td
+                = beer.ibu
